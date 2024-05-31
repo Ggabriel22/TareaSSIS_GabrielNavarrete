@@ -1,0 +1,720 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="5/19/2024 11:23:08 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="DESKTOP-9R6PIDB"
+  DTS:CreatorName="DESKTOP-9R6PIDB\GABRIEL"
+  DTS:DTSID="{7A05942B-4F50-409D-B681-CAD439554E90}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5467.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package"
+  DTS:PackageType="5"
+  DTS:VersionBuild="5"
+  DTS:VersionGUID="{A2BBAEFA-7B23-48DF-973A-9252F7AA4E09}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[LocalHost.SSISIntro]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{4535F8F1-1585-4A80-B90C-907B3857B310}"
+      DTS:ObjectName="LocalHost.SSISIntro">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=.;Initial Catalog=SSISIntro;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package-{4535F8F1-1585-4A80-B90C-907B3857B310}LocalHost.SSISIntro;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\ImportarDatosEmpleadosSQLServer"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87DCDDAB-9D4B-4A1E-9084-526EC6755FA6}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ImportarDatosEmpleadosSQLServer"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Nombre"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Apellidos"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="email"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input].Columns[Departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="Departamento"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Departamento]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Nombre]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Apellidos]"
+                      name="Apellidos"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Apellidos]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[email]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Departamento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="100"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Departamento]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[Empleados]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[LocalHost.SSISIntro]"
+                  connectionManagerRefId="Package.ConnectionManagers[LocalHost.SSISIntro]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Id]"
+                      cachedDataType="ui2"
+                      cachedName="Id"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Id]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Nombre]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Nombre"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Nombre]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Apellidos]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Apellidos"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Apellido]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Apellidos]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[Departamento]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="Departamento"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Departamento]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output].Columns[Departamento]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Id]"
+                      dataType="i4"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="100"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Apellido]"
+                      dataType="wstr"
+                      length="100"
+                      name="Apellido" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="100"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[Departamento]"
+                      dataType="wstr"
+                      length="100"
+                      name="Departamento" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element.;Microsoft Corporation;Microsoft SQL Server; Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Extracts data from an XML file. For example, extract catalog data from an XML file that represents catalogs and catalog items. Before using, specify the schema and generate an output for each XML element."
+              name="XML Source 1"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">Microsoft.XmlSourceAdapter</property>
+                <property
+                  dataType="System.String"
+                  description="The XML data used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLData">C:\Users\GABRIEL\Documents\HelloSSISXML\XML\dataset.xml</property>
+                <property
+                  dataType="System.String"
+                  description="The variable used by the XML source adapter to specify XML data."
+                  name="XMLDataVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how the XML source adapter gets XML data."
+                  name="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The XML schema definition used by the XML source adapter."
+                  expressionType="Notify"
+                  name="XMLSchemaDefinition">C:\Users\GABRIEL\Documents\HelloSSISXML\XSD\dataset.xsd</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Identifies whether or not to use inline schema."
+                  name="UseInlineSchema">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Defines how XML integer types are mapped."
+                  name="XMLIntegerMapping"
+                  typeConverter="Microsoft.SqlServer.Dts.Pipeline.XmlSourceAdapter+XMLIntegerMappingConverter">0</property>
+              </properties>
+              <outputs>
+                <output
+                  refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record]"
+                  name="record">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">record</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Id]"
+                      dataType="ui2"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Id]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Id]"
+                      name="Id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Nombre]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Nombre]"
+                      length="255"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Nombre]"
+                      name="Nombre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Apellidos]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Apellidos]"
+                      length="255"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Apellidos]"
+                      name="Apellidos"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[email]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[email]"
+                      length="255"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Departamento]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Departamento]"
+                      length="255"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].Columns[Departamento]"
+                      name="Departamento"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Id]"
+                      dataType="ui2"
+                      name="Id">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.UInt16</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Nombre]"
+                      dataType="wstr"
+                      length="255"
+                      name="Nombre">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Apellidos]"
+                      dataType="wstr"
+                      length="255"
+                      name="Apellidos">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[email]"
+                      dataType="wstr"
+                      length="255"
+                      name="email">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record].ExternalColumns[Departamento]"
+                      dataType="wstr"
+                      length="255"
+                      name="Departamento">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="CLRType">System.String</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output]"
+                  isErrorOut="true"
+                  name="record Error Output">
+                  <properties>
+                    <property
+                      dataType="System.String"
+                      description="Identifies the rowset associated with the output."
+                      name="RowsetID">record</property>
+                  </properties>
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Id]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Id]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Id]"
+                      name="Id" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Nombre]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Nombre]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Nombre]"
+                      name="Nombre" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Apellidos]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Apellidos]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Apellidos]"
+                      name="Apellidos" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[email]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[email]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Departamento]"
+                      dataType="nText"
+                      externalMetadataColumnId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Departamento]"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[Departamento]"
+                      name="Departamento" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Id]"
+                      dataType="nText"
+                      name="Id" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Nombre]"
+                      dataType="nText"
+                      name="Nombre" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Apellidos]"
+                      dataType="nText"
+                      name="Apellidos" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[email]"
+                      dataType="nText"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record Error Output].ExternalColumns[Departamento]"
+                      dataType="nText"
+                      name="Departamento" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ImportarDatosEmpleadosSQLServer.Paths[Data Conversion Output]"
+              endId="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Data Conversion Output"
+              startId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\ImportarDatosEmpleadosSQLServer.Paths[record]"
+              endId="Package\ImportarDatosEmpleadosSQLServer\Data Conversion.Inputs[Data Conversion Input]"
+              name="record"
+              startId="Package\ImportarDatosEmpleadosSQLServer\XML Source 1.Outputs[record]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="258,42"
+          Id="Package\ImportarDatosEmpleadosSQLServer"
+          TopLeft="138,99" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\ImportarDatosEmpleadosSQLServer">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="148,42"
+          Id="Package\ImportarDatosEmpleadosSQLServer\XML Source 1"
+          TopLeft="222.833333333333,53" />
+        <NodeLayout
+          Size="161,42"
+          Id="Package\ImportarDatosEmpleadosSQLServer\Data Conversion"
+          TopLeft="214,125" />
+        <EdgeLayout
+          Id="Package\ImportarDatosEmpleadosSQLServer.Paths[record]"
+          TopLeft="295.666666666667,95">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30"
+              Start="0,0"
+              End="0,22.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="177,42"
+          Id="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination"
+          TopLeft="204,209" />
+        <EdgeLayout
+          Id="Package\ImportarDatosEmpleadosSQLServer.Paths[Data Conversion Output]"
+          TopLeft="293.5,167">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,42"
+              Start="0,0"
+              End="0,34.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,34.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ImportarDatosEmpleadosSQLServer\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
